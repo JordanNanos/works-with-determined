@@ -13,7 +13,7 @@ data:
     branch:
     token:
 hyperparameters:
-  global_batch_size: 32
+  global_batch_size: 16
   init_features: 32
   input_channels: 3
   output_channels: 1
