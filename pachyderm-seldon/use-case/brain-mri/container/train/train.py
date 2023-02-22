@@ -98,10 +98,10 @@ def read_config(conf_file):
 
 # =====================================================================================
 
-def setup_config(config_file, repo, pipeline, job_id):
+def setup_config(config_file, repo, pipeline, job_id, host, port):
     config = read_config(config_file)
-    config["data"]["pachyderm"]["host"]   = os.getenv("PACHD_LB_SERVICE_HOST")
-    config["data"]["pachyderm"]["port"]   = os.getenv("PACHD_LB_SERVICE_PORT")
+    config["data"]["pachyderm"]["host"]   = host
+    config["data"]["pachyderm"]["port"]   = port
     config["data"]["pachyderm"]["repo"]   = repo
     config["data"]["pachyderm"]["branch"] = job_id
     config["data"]["pachyderm"]["token"]  = os.getenv("PAC_TOKEN")
@@ -245,7 +245,7 @@ def main():
 
     # --- Read and setup experiment config file. Then, run experiment
 
-    config = setup_config(config_file, args.repo, pipeline, job_id)
+    config = setup_config(config_file, args.repo, pipeline, job_id, args.master, args.port)
     client = create_client()
     model  = get_or_create_model(client, args.model, pipeline, args.repo)
     exp    = run_experiment(client, config, workdir, model)
