@@ -1,4 +1,3 @@
-
 name: MRI-test1-1GPU-pach-launch
 workspace: nanos 
 project: brain-mri
@@ -39,10 +38,6 @@ max_restarts: 0
 entrypoint: model_def:MRIUnetTrial
 profiling:
   enabled: True
-bind_mounts:
-  - host_path: /mnt/mapr_nfs/df5node/determined/data/
-    container_path: /data
-    read_only: False 
 checkpoint_storage:
   type: shared_fs
   host_path: /mnt/mapr_nfs/df5node/determined/det_checkpoints/determined-checkpoints/
