@@ -33,7 +33,7 @@ min_validation_period:
   epochs: 1
 resources:
   resource_pool: a100
-  slots_per_trial: 1
+  slots_per_trial: 4
 max_restarts: 0
 entrypoint: model_def:MRIUnetTrial
 profiling:
