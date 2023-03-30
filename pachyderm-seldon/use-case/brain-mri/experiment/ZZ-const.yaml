@@ -22,13 +22,13 @@ hyperparameters:
   pretrained: True # starting from pretrained unet model from PyTorch Hub
   split_seed: 1
   validation_ratio: 0.2
-records_per_epoch: 5 # 3143 for seed 1 and 2, we can consider seed 2 as our second 80/20 split
+records_per_epoch: 19 # 3143 for seed 1 and 2, we can consider seed 2 as our second 80/20 split
 searcher:
   name: single
   metric: val_IoU
   smaller_is_better: False
   max_length:
-    epochs: 2
+    epochs: 5
 min_validation_period:
   epochs: 1
 resources:
